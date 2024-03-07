@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import SocialButton from '../../components/SocialButton/SocialButton';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -37,13 +38,13 @@ const Login = () => {
           {errors.password && <span className="text-red-500">Password is required</span>}
         </div>
         <div className="mt-2 text-right">
-          <a href="/forgot-password" className="text-indigo-600">Forgot password?</a>
+          <Link to="/forgot-password" className="text-indigo-600">Forgot password?</Link>
         </div>
         <button type="submit" className="bg-green-500 w-full mt-3 text-white py-2 px-4 rounded-md hover:bg-indigo-600">Login</button>
       </form>
       <div className="mt-4 text-center">
         <span className="text-gray-600">Don't have an account?</span>
-        <a href="/register" className="text-indigo-600 ml-1">Register now</a>
+        <Link to="/register" className="text-indigo-600 ml-1">Create one</Link>
       </div>
 
     </div>
