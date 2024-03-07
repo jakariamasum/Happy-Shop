@@ -1,10 +1,11 @@
 import { FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const TopNavbar = () => {
     return (
         <nav className=" p-4 flex items-center justify-between">
             <div className="flex items-center">
-                {/* TODO: add logo here */}
+                {/* TODO:add logo here */}
                 {/* <img src={} alt="Happy Shop Logo" className="h-8 mr-4" /> */}
                 <span className=" text-lg font-bold">Happy Shop</span>
             </div>
@@ -27,7 +28,7 @@ const TopNavbar = () => {
 
             <div className="flex items-center">
                 <FaShoppingCart size={35} className="mr-10 cursor-pointer" />
-                <button className="bg-white border border-gray-500 text-gray-800 py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white">Sign Up</button>
+               <Link to='/login'> <button className="bg-white border border-gray-500 text-gray-800 py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white">Sign Up</button></Link>
             </div>
         </nav>
     );
