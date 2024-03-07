@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const TopNavbar = () => {
     return (
-        <nav className=" p-4 flex items-center justify-between">
+        <nav className=" p-4 bg-white flex items-center justify-between">
             <div className="flex items-center">
                 {/* TODO:add logo here */}
                 {/* <img src={} alt="Happy Shop Logo" className="h-8 mr-4" /> */}
