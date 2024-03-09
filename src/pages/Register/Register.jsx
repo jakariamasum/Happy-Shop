@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
 import SocialButton from '../../components/SocialButton/SocialButton';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { createUser } = useContext(AuthContext)
 
     const onSubmit = data => {
-        // TODO: add register logic
         console.log(data);
+        createUser(data.email, data.password)
+        .then(res => {
+                // TODO: modify user data
+                console.log(res.user);
+            })
     };
 
     const [passwordVisible, setPasswordVisible] = useState(false);

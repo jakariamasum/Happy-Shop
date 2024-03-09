@@ -8,8 +8,8 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
+const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
-    const provider = new GoogleAuthProvider();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 

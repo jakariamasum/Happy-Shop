@@ -1,15 +1,22 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import SocialButton from '../../components/SocialButton/SocialButton';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const {signIn,googleLogin}= useContext(AuthContext);
+  // console.log(user)
 
   const onSubmit = data => {
     // TODO: add login logic
     console.log(data);
+    signIn(data.email,data.password)
+    .then(res=>{
+      console.log(res);
+    })
   };
 
   const [passwordVisible, setPasswordVisible] = useState(false);
