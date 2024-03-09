@@ -1,7 +1,14 @@
-import { FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { useContext, useState } from 'react';
+import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const TopNavbar = () => {
+    const { user } = useContext(AuthContext);
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
     return (
         <nav className=" p-4 bg-white flex items-center justify-between">
             <div className="flex items-center">
@@ -27,8 +34,25 @@ const TopNavbar = () => {
             </div>
 
             <div className="flex items-center">
-                <FaShoppingCart size={35} className="mr-10 cursor-pointer" />
-               <Link to='/login'> <button className="bg-white border border-gray-500 text-gray-800 py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white">Sign Up</button></Link>
+                {
+                    user ? <>
+                        {/* <FaUser size={35} className="mr-10 cursor-pointer" /> */}
+                        <button onClick={toggleMenu} className="bg-white border border-gray-500 text-gray-800 py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white">{user?.displayName}</button>
+                        {isOpen && (
+                            <div className="absolute top-[65px] w-48 bg-white border border-gray-500 rounded-lg shadow-lg z-10">
+                                <Link to="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">My Profile</Link>
+                                <Link to="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Dashboard</Link>
+                                <Link to="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</Link>
+                            </div>
+                        )}
+                    </>
+                        :
+                        <>
+                            <FaShoppingCart size={35} className="mr-10 cursor-pointer" />
+                            <Link to='/login'> <button className="bg-white border border-gray-500 text-gray-800 py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white">Sign Up</button></Link>
+                        </>
+                }
+
             </div>
         </nav>
     );

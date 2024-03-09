@@ -4,6 +4,9 @@ import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
 import SocialButton from '../../components/SocialButton/SocialButton';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
+const auth= getAuth(app)
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -15,6 +18,13 @@ const Register = () => {
         .then(res => {
                 // TODO: modify user data
                 console.log(res.user);
+                updateProfile(auth.currentUser,{
+                    displayName:data.name
+                })
+                .then(res=>{
+                    console.log('updated')
+                })
+                .catch(error=>console.log(error.message))
             })
     };
 
