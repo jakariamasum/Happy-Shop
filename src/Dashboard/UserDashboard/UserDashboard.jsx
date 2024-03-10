@@ -25,7 +25,7 @@ const UserDashboard = () => {
           <NavLink className="p-4 text-[17px]" to="/dashboard/myAccount/profile">
             My Account
           </NavLink>
-          <NavLink className="p-4 text-[17px]" to="/myOrders">
+          <NavLink className="p-4 text-[17px]" to="/dashboard/myAccount/myOrders">
             My Orders
           </NavLink>
           <NavLink className="p-4 text-[17px]" to="/comming-soon">

@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import UserDashboard from "../Dashboard/UserDashboard/UserDashboard";
 import UserProfile from "../Dashboard/UserDashboard/UserProfile";
+import MyOrders from "../Dashboard/UserDashboard/MyOrders";
 
 const router= createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router= createBrowserRouter([
                 {
                     path:'profile',
                     element: <UserProfile/>
+                },
+                {
+                    path: 'myOrders',
+                    element: <MyOrders/>
                 }
             ]
     }
