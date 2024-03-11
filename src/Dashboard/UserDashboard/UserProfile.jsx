@@ -14,7 +14,7 @@ const UserProfile = () => {
         //TODO: apply logic for update info
         console.log(data)
     }
-
+ 
     return (
         <div className="my-7">
             <div className="bg-white mb-8 p-4 shadow-lg rounded border-t-2 border-green-500">
